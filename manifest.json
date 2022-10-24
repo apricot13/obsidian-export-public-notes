@@ -1,0 +1,10 @@
+{
+	"id": "obsidian-export-public-notes",
+	"name": "Export public notes",
+	"version": "1.0.0",
+	"minAppVersion": "0.15.0",
+	"description": "Exports public notes for publishing",
+	"author": "Han",
+	"authorUrl": "https://www.apricot13.org",
+	"isDesktopOnly": false
+}
