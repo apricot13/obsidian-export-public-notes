@@ -1,13 +1,4 @@
-import {
-	App,
-	Editor,
-	MarkdownView,
-	Modal,
-	Notice,
-	Plugin,
-	PluginSettingTab,
-	Setting,
-} from "obsidian";
+import { App, Notice, Plugin, PluginSettingTab, Setting } from "obsidian";
 import { getAPI } from "obsidian-dataview";
 import { DataArray } from "obsidian-dataview/lib/api/data-array";
 import { Literal } from "obsidian-dataview/lib/data-model/value";
@@ -94,25 +85,37 @@ export default class ExportPublicNotesPlugin extends Plugin {
 
 				Utils.writeAndOpenFile(
 					this.app,
-					"utils/to-publish-notes.txt",
+					"utils/publish/to-publish--notes.txt",
 					outputNotePaths.join("\n"),
 					false
 				);
 				Utils.writeAndOpenFile(
 					this.app,
-					"utils/to-publish-attachments.txt",
+					"utils/publish/to-publish--attachments.txt",
 					outputNoteAttachmentPaths.join("\n"),
 					false
 				);
 				Utils.writeAndOpenFile(
 					this.app,
-					"utils/to-publish-all.txt",
+					"utils/publish/to-publish.txt",
 					outputPaths.join("\n"),
+					false
+				);
+				Utils.writeAndOpenFile(
+					this.app,
+					"utils/publish/attachments-to-check.txt",
+					outputPathsToCheck.join("\n"),
+					false
+				);
+				Utils.writeAndOpenFile(
+					this.app,
+					"utils/publish/missed-notes.txt",
+					missedNotePaths.join("\n"),
 					false
 				);
 
 				// Called when the user clicks the icon.
-				new Notice("This is a notice!");
+				new Notice("Exported files!");
 			}
 		);
 		// Perform additional things with the ribbon
